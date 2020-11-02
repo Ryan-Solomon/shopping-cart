@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import CartItem from './CartItem';
+import { useAppContext } from './context/AppContext';
 
 type CartItem = {
   id: string;
@@ -10,25 +11,13 @@ type CartItem = {
 };
 
 const CartItems = () => {
-  const [items, setItems] = useState<CartItem[]>([]);
-  const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    const fetchItems = async () => {
-      setLoading(true);
-      const res = await fetch(
-        'https://course-api.com/react-useReducer-cart-project'
-      );
-      const data = await res.json();
-      setItems(data);
-      setLoading(false);
-    };
-    fetchItems();
-  }, []);
+  const { items, loading } = useAppContext();
 
   const renderedItems = items.map((item) => {
     return <CartItem key={item.id} item={item} />;
   });
+
+  if (loading) return <h1>Loading...</h1>;
 
   return <>{renderedItems}</>;
 };

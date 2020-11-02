@@ -17,7 +17,11 @@ const CartItem: FC<Props> = ({ item }) => {
         <h6>{item.price}</h6>
         <button>remove</button>
       </div>
-      <div className='cart-item-count'>1</div>
+      <div className='cart-item-count'>
+        <button>+</button>
+        <div>{item.amount}</div>
+        <button>-</button>
+      </div>
     </div>
   );
 };
