@@ -1,38 +1,130 @@
-.App {
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+/* NAV */
+
+.nav-container {
+  display: flex;
+  background-color: #333;
+  color: white;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.icon-container {
+  position: relative;
+}
+
+.icon-count {
+  background-color: rgb(3, 245, 241);
+  border-radius: 50%;
+  padding: 0.3rem;
+  color: #333;
+  position: absolute;
+  top: 20px;
+  left: 50px;
+}
+
+/* CART */
+
+.shopping-cart-container {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  grid-template-rows: auto;
+  height: 20rem;
+}
+
+.shopping-cart-header {
+  grid-column: span 3;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.cart-footer {
+  grid-column: span 3;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.cart-items {
+  grid-column: span 3;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.cart-items li {
+  list-style: none;
+}
+
+/* CART ITEM */
+
+.cart-item-container {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 5fr 1fr;
+}
+
+.cart-item-image img {
+  width: 4rem;
+}
+.cart-item-details {
+  padding: 0.3rem;
+  margin: 0.3rem;
+}
+
+.cart-item-details h6,
+.cart-item-details h5 {
+  margin: 0.3rem;
+}
+
+.cart-item-details button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: rgb(152, 35, 35);
+  padding: 0.2rem 0.3rem;
+  border-radius: 0.3rem;
+  transition: all 0.15s ease-in;
+}
+
+.cart-item-details button:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+  color: black;
+}
+
+/* FOOTER */
+
+.cart-footer {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+
+.footer-top {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+  margin: 1rem 0;
+  padding: 0.5rem;
+  border-top: 1px solid black;
+  grid-column: span 5;
 }
 
-.App-link {
-  color: #61dafb;
+.footer-bottom {
+  grid-column: 3 / 4;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.footer-bottom .footer-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: rgb(152, 35, 35);
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  transition: all 0.3s ease-in;
+}
+
+.footer-bottom .footer-button:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+  color: black;
 }
